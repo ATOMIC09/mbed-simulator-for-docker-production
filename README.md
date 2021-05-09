@@ -20,22 +20,19 @@ Online mbed simulator LPC1768
 There are two ways of installing and running the simulator: either using Docker or installing a locally hosted version.
 
 ## Docker installation
+```
 1. Install Docker Desktop (Tested on Windows with WSL2)
 
 2. Build the Docker image (On Windows, run at CMD):
-
 **docker build -t mbed/simulator .**
 
 3. Run the Docker image:
-
 **docker run -p 8000:7829 mbed/simulator**
 
 4. The simulator can now be accessed at:
-
 http://localhost:8000
-
 And voilà!
-
+```
 
 ## Installation
 

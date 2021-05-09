@@ -5,6 +5,8 @@ Online mbed simulator LPC1768
 
 **Demo: https://labs.mbed.com/simulator**
 
+![Screenshot](https://os.mbed.com/media/uploads/janjongboom/simulator2.png)
+
 [More information in the introductionary blog post](https://os.mbed.com/blog/entry/introducing-mbed-simulator/)
 
 ## Docs

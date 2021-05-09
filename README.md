@@ -34,7 +34,7 @@ There are two ways of installing and running the simulator: either using Docker 
    And voilà!
 ```
 
-## Installation
+## Manual Installation
 
 ### Prerequisites
 
@@ -205,8 +205,7 @@ $ sh build-demos.sh
 $ build-demos.bat
 ```
 
-**Commands to Install (tested in Debian/Ubuntu)**
-
+### Commands to Install (tested in Debian/Ubuntu)
 $ apt update -y && apt upgrade –y
 
 $ apt-get install python2 curl wget git mercurial build-essential nodejs npm -y

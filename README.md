@@ -26,7 +26,7 @@ docker build -t mbed/simulator .
 Run the Docker image:
 docker run -p 8000:7829 mbed/simulator
 The simulator can now be accessed at
-http://localhost:8002
+http://localhost:8000
 
 ## Installation
 

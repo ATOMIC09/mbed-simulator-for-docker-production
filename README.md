@@ -19,12 +19,12 @@ Online mbed simulator LPC1768
 
 There are two ways of installing and running the simulator: either using Docker or installing a locally hosted version.
 
-**Docker installation** 
+## Docker installation
 Install Docker (Tested on Windows with WSL2)
-Build the Docker image:
+Build the Docker image (On Windows, run at CMD):
 docker build -t mbed/simulator .
 Run the Docker image:
-docker run -p 8002:7829 mbed/simulator
+docker run -p 8000:7829 mbed/simulator
 The simulator can now be accessed at
 http://localhost:8002
 
@@ -245,29 +245,30 @@ $ build-demos.bat
 ```
 
 **Commands to Install (tested in Debian/Ubuntu)**
-apt update -y && apt upgrade –y
-apt-get install python2 curl wget git mercurial build-essential nodejs npm -y
-update-alternatives --install /usr/bin/python python /usr/bin/python2 1
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
-python get-pip.py
-pip install mbed-cli
-dpkg --add-architecture i386
-apt-get update -y
-apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 –y
-cd /usr/local && wget https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3.tar.gz && \
-tar -zxvf cmake-3.10.3.tar.gz && cd cmake-3.10.3 && \
-./bootstrap && make && make install
-cd /emsdk && ./emsdk install emscripten-1.38.21 && \
-./emsdk install sdk-fastcomp-tag-1.38.21-64bit && \
-./emsdk activate emscripten-1.38.21 && \
-./emsdk activate fastcomp-clang-tag-e1.38.21-64bit && \
-chmod +x /emsdk/emsdk_env.sh && ./emsdk_env.sh
-echo "PATH=$PATH:/emsdk/emscripten/1.38.21" >> ~/.bashrc
-curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
-bash nodesource_setup.sh
-apt install nodejs –y
-npm install
-build-demos.sh
+
+$ apt update -y && apt upgrade –y
+$ apt-get install python2 curl wget git mercurial build-essential nodejs npm -y
+$ update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+$ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
+$ python get-pip.py
+$ pip install mbed-cli
+$ dpkg --add-architecture i386
+$ apt-get update -y
+$ apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 –y
+$ cd /usr/local && wget https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3.tar.gz && \
+$ tar -zxvf cmake-3.10.3.tar.gz && cd cmake-3.10.3 && \
+$ ./bootstrap && make && make install
+$ cd /emsdk && ./emsdk install emscripten-1.38.21 && \
+$ ./emsdk install sdk-fastcomp-tag-1.38.21-64bit && \
+$ ./emsdk activate emscripten-1.38.21 && \
+$ ./emsdk activate fastcomp-clang-tag-e1.38.21-64bit && \
+$ chmod +x /emsdk/emsdk_env.sh && ./emsdk_env.sh
+$ echo "PATH=$PATH:/emsdk/emscripten/1.38.21" >> ~/.bashrc
+$ curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+$ bash nodesource_setup.sh
+$ apt install nodejs –y
+$ npm install
+$ build-demos.sh
 
 So...just put in your browser:
 http://localhost:7829

@@ -33,7 +33,7 @@ ADD . /app
 
 WORKDIR /app
 
-RUN npm install && ./build-demos.sh
+RUN npm install && chmod +x build-demos.sh && ./build-demos.sh
 
 EXPOSE 7829
 

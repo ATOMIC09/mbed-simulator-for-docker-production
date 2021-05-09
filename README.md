@@ -20,13 +20,22 @@ Online mbed simulator LPC1768
 There are two ways of installing and running the simulator: either using Docker or installing a locally hosted version.
 
 ## Docker installation
-Install Docker (Tested on Windows with WSL2)
-Build the Docker image (On Windows, run at CMD):
-docker build -t mbed/simulator .
-Run the Docker image:
-docker run -p 8000:7829 mbed/simulator
-The simulator can now be accessed at
+1. Install Docker Desktop (Tested on Windows with WSL2)
+
+2. Build the Docker image (On Windows, run at CMD):
+
+**docker build -t mbed/simulator .**
+
+3. Run the Docker image:
+
+**docker run -p 8000:7829 mbed/simulator**
+
+4. The simulator can now be accessed at:
+
 http://localhost:8000
+
+And voilà!
+
 
 ## Installation
 
@@ -89,14 +98,14 @@ To install the Emscripten cross-compilation toolchain, open a command prompt and
 
     ```
     $ where emcc
-    C:\simulator\emsdk\emscripten\1.38.21\emcc
+    C:\emsdk\emscripten\1.38.21\emcc
     ```
 
     **macOS and Linux**
 
     ```
     $ which emcc
-    ~/toolchains/emsdk/emscripten/1.38.21/emcc
+    /emsdk/emscripten/1.38.21/emcc
     ```
 
 1. Add this folder to your PATH.
@@ -108,63 +117,17 @@ To install the Emscripten cross-compilation toolchain, open a command prompt and
         * Open `~/.bash_profile` or `~/.bashrc` and add:
 
         ```
-        PATH=$PATH:~/toolchains/emsdk/emscripten/1.38.21
+        PATH=$PATH:/emsdk/emscripten/1.38.21
         ```
 
 1. Open a new command prompt and verify that `emcc` can still be found by running:
 
     ```
     $ where emcc
-    C:\simulator\emsdk\emscripten\1.38.21\emcc
+    C:\emsdk\emscripten\1.38.21\emcc
     ```
 
 1. All set!
-
-### Installing the simulator through npm
-
-Last, install the simulator. Easiest is through npm:
-
-1. Install the simulator:
-
-    ```
-    $ npm install mbed-simulator -g
-    ```
-
-1. Clone an Mbed OS example program:
-
-    ```
-    $ mbed import mbed-os-example-blinky
-    $ cd mbed-os-example-blinky
-    ```
-
-1. Run the simulator:
-
-    ```
-    $ mbed-simulator .
-    ```
-
-    Note that this will download all dependencies (including Mbed OS) and will build the common `libmbed` library so this'll take some time.
-
-### Installing the simulator from source
-
-1. Install the simulator through git:
-
-    ```
-    $ git clone https://github.com/janjongboom/mbed-simulator.git
-    $ cd mbed-simulator
-    $ npm install
-    $ npm install . -g
-    ```
-
-1. Build your first example:
-
-    ```
-    $ node cli.js -i demos\blinky -o out --launch
-    ```
-
-    Note that this will download all dependencies (including Mbed OS) and will build the common `libmbed` library so this'll take some time.
-
-1. Done! The Mbed Simulator should now launch in your default browser.
 
 ### Troubleshooting
 
@@ -175,7 +138,7 @@ This error is thrown on Windows systems when the path length limit is hit. Move 
 ## How to run the hosted version
 
 1. Install all dependencies, and clone the repository from source (see above).
-1. Run:
+2. Run:
 
     ```
     $ npm install
@@ -187,14 +150,15 @@ This error is thrown on Windows systems when the path length limit is hit. Move 
     $ sh build-demos.sh
     ```
 
-1. Then, start a web server:
+3. Then, start a web server:
 
     ```
     $ node server.js
     ```
+4.  So...just put in your browser:
+http://localhost:7829
 
-1. Open http://localhost:7829 in your browser.
-1. Blinky runs!
+And voilà!
 
 ## CLI
 
@@ -247,27 +211,49 @@ $ build-demos.bat
 **Commands to Install (tested in Debian/Ubuntu)**
 
 $ apt update -y && apt upgrade –y
+
 $ apt-get install python2 curl wget git mercurial build-essential nodejs npm -y
+
 $ update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+
 $ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
+
 $ python get-pip.py
+
 $ pip install mbed-cli
+
 $ dpkg --add-architecture i386
+
 $ apt-get update -y
+
 $ apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 –y
+
 $ cd /usr/local && wget https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3.tar.gz && \
+
 $ tar -zxvf cmake-3.10.3.tar.gz && cd cmake-3.10.3 && \
+
 $ ./bootstrap && make && make install
+
 $ cd /emsdk && ./emsdk install emscripten-1.38.21 && \
+
 $ ./emsdk install sdk-fastcomp-tag-1.38.21-64bit && \
+
 $ ./emsdk activate emscripten-1.38.21 && \
+
 $ ./emsdk activate fastcomp-clang-tag-e1.38.21-64bit && \
+
 $ chmod +x /emsdk/emsdk_env.sh && ./emsdk_env.sh
+
 $ echo "PATH=$PATH:/emsdk/emscripten/1.38.21" >> ~/.bashrc
+
 $ curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+
 $ bash nodesource_setup.sh
+
 $ apt install nodejs –y
+
 $ npm install
+
 $ build-demos.sh
 
 So...just put in your browser:

@@ -19,7 +19,7 @@ RUN cd /usr/local && wget https://github.com/Kitware/CMake/releases/download/v3.
 	tar -zxvf cmake-3.10.3.tar.gz && cd cmake-3.10.3 && \
 	./bootstrap && make && make install
 	
-RUN git clone https://github.com/emscripten-core/emsdk.git && \
+RUN git clone --branch "3.1.29" https://github.com/emscripten-core/emsdk.git && \
 	cd /emsdk && ./emsdk install emscripten-1.38.21 && \
     ./emsdk install sdk-fastcomp-tag-1.38.21-64bit && \
     ./emsdk activate emscripten-1.38.21 && \

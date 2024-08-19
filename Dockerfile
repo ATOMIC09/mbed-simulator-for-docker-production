@@ -29,7 +29,7 @@ RUN git clone --branch "3.1.29" https://github.com/emscripten-core/emsdk.git && 
 RUN /bin/bash -c 'source "/emsdk/emsdk_env.sh"' >> ~/.bashrc
 	
 RUN	curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh && \
-	bash nodesource_setup.sh && apt install nodejs
+	bash nodesource_setup.sh && apt-get install -y nodejs
 
 ADD . /app
 

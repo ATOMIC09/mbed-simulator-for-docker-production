@@ -3,7 +3,7 @@ FROM debian
 ENV PATH="/emsdk:/emsdk/emscripten/tag-1.38.21:/emsdk/fastcomp-clang/tag-e1.38.21/build_tag-e1.38.21_64/bin:/usr/bin/python:/usr/bin/hg:/usr/bin/node:/usr/bin/npm:${PATH}"
 
 RUN apt-get update -y && apt-get upgrade -y && \
-	deb http://archive.debian.org/debian/ stretch contrib main non-free
+	deb http://archive.debian.org/debian/ stretch contrib main non-free && \
 	apt-get install python2.7 curl wget git mercurial -y && \
 	apt-get install build-essential -y
 
